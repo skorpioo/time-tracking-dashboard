@@ -76,7 +76,7 @@ body main .container .card .card-bottom:hover {
   background: #33387a;
 }
 
-body main .container .card .card-bottom label {
+body main .container .card .card-bottom .title {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -89,7 +89,7 @@ body main .container .card .card-bottom label {
   cursor: inherit;
 }
 
-body main .container .card .card-bottom label h2 {
+body main .container .card .card-bottom .title h2 {
   font-size: 1.9rem;
   font-weight: 500;
 }
