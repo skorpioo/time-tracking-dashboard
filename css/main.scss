@@ -1,0 +1,273 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap');
+
+$blue: hsl(246, 80%, 60%);
+$red: hsl(15, 100%, 70%);
+$softBlue: hsl(195, 74%, 62%);
+$lightRedStudy: hsl(348, 100%, 68%);
+$limeGreen: hsl(145, 58%, 55%);
+$violet: hsl(264, 64%, 52%);
+$orange: hsl(43, 84%, 65%);
+$veryDarkBlue: hsl(226, 43%, 10%);
+$darkBlue: hsl(235, 46%, 20%);
+$desaturatedBlue: hsl(235, 45%, 61%);
+$paleBlue: hsl(236, 100%, 87%);
+
+*,
+*::before,
+*::after {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 62.5%;
+}
+
+h1,
+h2,
+h3,
+p {
+	color: white;
+}
+
+body {
+	font-family: 'Rubik', sans-serif;
+	background-color: $veryDarkBlue;
+
+	main {
+		display: grid;
+		place-items: center;
+		min-height: 100vh;
+		padding: 80px 0;
+
+		.container {
+			width: 90%;
+			max-width: 1100px;
+			display: grid;
+			grid-template: repeat(2, 1fr) / repeat(4, 1fr);
+			gap: 3rem;
+
+			.card {
+				display: flex;
+				flex-direction: column;
+
+				.card-top {
+					height: 60px;
+					border-top-left-radius: 15px;
+					border-top-right-radius: 15px;
+				}
+
+				.card-bottom {
+					flex: 1;
+					background: $darkBlue;
+					margin-top: -15px;
+					padding: 28px 30px;
+					border-radius: 15px;
+					transition: background 0.2s ease-in-out;
+					cursor: pointer;
+
+					&:hover {
+						background: hsl(236, 41%, 34%);
+					}
+
+					label {
+						display: flex;
+						align-items: center;
+						justify-content: space-between;
+						cursor: inherit;
+
+						h2 {
+							font-size: 1.9rem;
+							font-weight: 500;
+						}
+					}
+
+					h3 {
+						font-size: 5.5rem;
+						font-weight: 300;
+						margin: 25px 0 7px;
+					}
+
+					p {
+						font-size: 1.5rem;
+						font-weight: 400;
+						color: $paleBlue;
+					}
+				}
+			}
+
+			.user {
+				grid-row: 1 / 3;
+
+				img {
+					width: 85px;
+					border: 3px solid white;
+					border-radius: 100%;
+				}
+
+				.card-top {
+					background: $blue;
+					height: 355px;
+					padding: 33px;
+					border-radius: 15px;
+					position: relative;
+					z-index: 1;
+
+					p {
+						margin: 37px 0 3px;
+						color: $paleBlue;
+						font-size: 1.5rem;
+					}
+
+					h1 {
+						font-weight: 300;
+						font-size: 4rem;
+					}
+				}
+
+				.card-bottom {
+					margin-top: -25px;
+					padding: 56px 32px 30px;
+					cursor: default;
+
+					&:hover {
+						background: $darkBlue;
+					}
+
+					ul {
+						display: grid;
+						gap: 20px;
+						list-style: none;
+
+						li {
+							font-size: 1.8rem;
+							color: $desaturatedBlue;
+							cursor: pointer;
+							transition: color 0.2s ease;
+							width: max-content;
+
+							&:hover {
+								color: white;
+							}
+
+							&.active {
+								cursor: default;
+								color: white;
+							}
+						}
+					}
+				}
+			}
+
+			.work {
+				.card-top {
+					background: url(/images/icon-work.svg) no-repeat right 17px top -11px $red;
+				}
+			}
+			.play {
+				.card-top {
+					background: url(/images/icon-play.svg) no-repeat right 17px top -5px $softBlue;
+				}
+			}
+
+			.study {
+				.card-top {
+					background: url(/images/icon-study.svg) no-repeat right 17px top -9px $lightRedStudy;
+				}
+			}
+
+			.exercise {
+				.card-top {
+					background: url(/images/icon-exercise.svg) no-repeat right 17px top $limeGreen;
+				}
+			}
+
+			.social {
+				.card-top {
+					background: url(/images/icon-social.svg) no-repeat right 17px top $violet;
+				}
+			}
+
+			.selfcare {
+				.card-top {
+					background: url(/images/icon-self-care.svg) no-repeat right 17px top -10px $orange;
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: 63em) {
+	body {
+		main {
+			.container {
+				grid-template: auto / repeat(2, 1fr);
+
+				.user {
+					grid-column: 1 / 3;
+
+					.card-top {
+						display: flex;
+						align-items: center;
+						height: auto;
+						gap: 20px;
+						padding: 55px 33px;
+
+						p {
+							margin: 0;
+						}
+					}
+
+					.card-bottom {
+						padding: 55px 32px 30px;
+
+						ul {
+							display: flex;
+							align-items: center;
+							justify-content: space-between;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: 35em) {
+	body main .container {
+		grid-template: auto / 1fr;
+		align-self: start;
+
+		.card {
+			.card-bottom {
+				h3 {
+					margin: 0;
+					font-size: 3.5rem;
+				}
+
+				.content {
+					margin-top: 10px;
+					display: flex;
+					align-items: center;
+					justify-content: space-between;
+				}
+			}
+		}
+		.user {
+			grid-column: 1 / 2;
+
+			.card-top {
+				padding: 40px 25px;
+
+				img {
+					width: 70px;
+				}
+
+				h1 {
+					font-size: 3rem;
+				}
+			}
+		}
+	}
+}
